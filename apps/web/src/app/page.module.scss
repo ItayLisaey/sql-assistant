@@ -24,6 +24,12 @@
     padding: 2rem;
   }
 
+@media (max-height: 480px) {
+    & > section:nth-child(2) {
+      display: none;
+    }
+  }
+
   // background
   animation: rotate 7s alternate-reverse infinite;
   backdrop-filter: blur(100px);
@@ -110,6 +116,7 @@
   border-radius: 5px;
   padding: .5rem 1rem;
   font-size: 1rem;
+  min-height: 2rem;
   background: transparent;
   z-index: 2;
   color: rgb(20, 0, 73);
@@ -140,7 +147,7 @@
   align-items: center;
   gap: 2rem;
   width: 5rem;
-  height: 2rem;
+  min-height: 2rem;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
   border-radius: 5px;
   position: relative;
