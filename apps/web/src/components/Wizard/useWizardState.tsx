@@ -42,13 +42,11 @@ const machine = createMachine({
       on: {
         CANCEL: {
           target: 'describe-database',
+          actions: assign({ query: undefined, result: undefined }),
         },
         PROCEED: {
           target: 'process',
-          actions: [
-            assign({ query: (context, event) => event.value }),
-            'sendQuery',
-          ],
+          actions: assign({ query: (context, event) => event.value }),
         },
       },
     },
