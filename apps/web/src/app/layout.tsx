@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Text-To-SQL',
+  title: 'SQL Assistant',
   description: 'Text to SQL demo',
 };
 
@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='he' dir='rtl'>
+    <html lang='en'>
       <body>{children}</body>
     </html>
   );

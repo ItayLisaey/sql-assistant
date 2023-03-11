@@ -10,23 +10,29 @@
 .main {
   position: relative;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
   width: 100%;
   height: 100%;
-  background-color: hsla(193, 100%, 80%, 1);
-  color: white;
+  color: rgb(20, 0, 73);
+  padding: 5rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  // background
   animation: rotate 7s alternate-reverse infinite;
   backdrop-filter: blur(100px);
   background-position: center;
+  background-color:hsla(202,90%,86%,1);
   background-image:
-    radial-gradient(at 59% 57%, hsla(224, 93%, 66%, 1) 0px, transparent 50%),
-    radial-gradient(at 95% 37%, hsla(237, 100%, 71%, 1) 0px, transparent 50%),
-    radial-gradient(at 81% 45%, hsla(201, 69%, 51%, 1) 0px, transparent 50%),
-    radial-gradient(at 4% 83%, hsla(218, 85%, 62%, 1) 0px, transparent 50%),
-    radial-gradient(at 14% 25%, hsla(202, 85%, 76%, 1) 0px, transparent 50%),
-    radial-gradient(at 23% 28%, hsla(233, 31%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 86% 15%, hsla(247, 76%, 73%, 1) 0px, transparent 50%);
+  radial-gradient(at 90% 38%, hsla(240,57%,59%,0) 0px, transparent 50%),
+  radial-gradient(at 68% 10%, hsla(240,68%,49%,0.54) 0px, transparent 50%),
+  radial-gradient(at 76% 81%, hsla(189,81%,60%,0.41) 0px, transparent 50%);
 }
 
 @keyframes rotate {
@@ -46,25 +52,36 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  width: 30vw;
-  height: 40vh;
+  width: 100%;
+  padding: {
+    inline: 2rem;
+    block: 2rem;
+  };
+  height: 100%;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
   border-radius: 5px;
   position: relative;
   z-index: 1;
-  background: inherit;
+  // background: inherit;
   overflow: hidden;
   transition: scale .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:hover {
-    scale: 1.1;
+    scale: 1.01;
     
   } 
 
-
-  @media (max-width: 768px) {
-    width: 80vw;
+  &:nth-child(2) {
+    direction: ltr;
+    padding: 2rem;
+    background: rgb(20, 0, 73);
   }
+
+  &:nth-child(2):before {
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .2);
+
+  }
+
 }
 
 .pane:before {
@@ -76,9 +93,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .3);
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .8);
   filter: blur(10px);
   margin: -20px;
+
+ 
  
 }
 
@@ -86,20 +105,20 @@
 .pane > textarea {
   font-family: 'Open Sans', sans-serif;
   width: 80%;
-  border: none;
-  border-bottom: 2px solid white;
+  border: 2px solid rgb(20, 0, 73);
   
   border-radius: 5px;
   padding: .5rem 1rem;
   font-size: 1rem;
   background: transparent;
   z-index: 2;
-  color: white;
+  color: rgb(20, 0, 73);
+
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0);
   transition: box-shadow .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &::placeholder {
-    color: rgba($color: white, $alpha: .8)
+    color: rgba($color: rgb(20, 0, 73), $alpha: .8)
   }
 
   &:focus {
@@ -113,7 +132,7 @@
   border: none;
   font-family: inherit;
   font-weight: 700;
-  color: white;
+  color: rgb(20, 0, 73);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -141,6 +160,13 @@
 
   }
 
+  &:disabled {
+    scale: 1;
+    opacity: .5;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    cursor: not-allowed;
+  }
+
   
 
 
@@ -156,5 +182,19 @@
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, .2);
     filter: blur(10px);
     margin: -20px;
+  }
+}
+
+
+.pane pre {
+  font-size: 1.2rem;
+  background-color: transparent;
+  width: 100%;
+  overflow-x: auto;
+  border: none;
+  box-shadow: none;
+  code {
+    word-break: keep-all !important;
+    white-space: pre-line;
   }
 }
