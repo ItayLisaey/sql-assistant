@@ -13,21 +13,21 @@ As this technology continues to evolve at a rapid pace, the role of developers i
 
 ## How to Use This App
 ### Installation
-    - Clone the repository to your local machine.
-    - Set up an OpenAI API key by following the instructions on the (https://platform.openai.com/docs/api-reference/authentication)[OpenAI API website].
-    - Create a .env.local file in the `apps/web` directory of the project and add your OpenAI API key as follows:
-    ```
-        OPENAI_KEY=${YOUR-KEY}
-    
-    - Start the application by running `npm start`.
+1.Clone the repository to your local machine.
+1.Set up an OpenAI API key by following the instructions on the (https://platform.openai.com/docs/api-reference/authentication)[OpenAI API website].
+1.Create a .env.local file in the `apps/web` directory of the project and add your OpenAI API key as follows:
+```
+  OPENAI_KEY=${YOUR-KEY}
+```  
+1.Start the application by running `npm start`.
 
 ### Usage
-    - Open your web browser and go to http://localhost:3000/.
-    - Describe your database in the "Describe database" field.
-    - Click Next
-    - Enter your natural language query in the "Query" field.
-    - Click "Next".
-    - The translated SQL query will be displayed.
+1. Open your web browser and go to http://localhost:3000/.
+1. Describe your database in the "Describe database" field.
+1. Click "Next".
+1. Enter your natural language query in the "Query" field.
+1. Click "Next".
+1. The translated SQL query will be displayed.
 
 ## Technologies Used
 - Node.JS
