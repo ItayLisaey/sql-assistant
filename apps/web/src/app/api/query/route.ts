@@ -25,13 +25,13 @@ export async function POST(request: Request) {
       {
         role: 'system',
         content:
-          'You are an machine that takes a desciption for a query and creates a sql query based on an imagenry database.' +
+          'You are an machine that takes a desciption for a database and a query and creates a sql query based on the given database description.' +
           'You are allowed to anwser only in one sql query that is valid for the given database. WITHOUT Notes or descriptions! only valid sql' +
           'if you are not able to anwser the question you can say "I don\'t know".',
       },
       {
-        role: 'system',
-        content: `This is the database that you are working on: ${database}`,
+        role: 'user',
+        content: `This is the description of the database that you are working on: ${database}`,
       },
       {
         role: 'user',
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 
   const choice = response.data.choices[0].message?.content;
 
-  console.log('response', response.data.choices);
   const result = JSON.stringify({ result: choice });
+
   return new Response(result);
 }
